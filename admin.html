@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/admin.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1 style="text-align: center">Admin Panel</h1>
+    <form
+        id="product-create-form"
+        style="
+            width: 300px;
+            margin: auto;
+            display: flex;
+            gap: 10px;
+            flex-direction: column;
+        "
+        action=""
+    >
+        <input type="text" placeholder="name" name="name" required />
+        <input type="text" placeholder="category" name="category" required />
+        <input
+            type="text"
+            placeholder="description"
+            name="description"
+            required
+        />
+        <input type="file" placeholder="image" name="image" required />
+        <input type="number" placeholder="price" name="price" required />
+        <input type="number" placeholder="rating" name="rating" required />
+        <input type="number" placeholder="stock" name="stock" required />
+
+        <button>Submit</button>
+    </form>
+
+    <script src="./js/admin.js"></script>
+</body>
+</html>

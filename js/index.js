@@ -28,9 +28,9 @@ const swiper2 = new Swiper('.swiper2', {
   loop: true,
   slidesPerView: 10, // Har safar ko'rinadigan slaydlar soni
   spaceBetween: 20,
-  // autoplay: {
-  //   delay: "2000",
-  // },
+  autoplay: {
+    delay: "2000",
+  },
 
   pagination: {
     el: '.swiper-pagination',

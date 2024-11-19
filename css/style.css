@@ -102,9 +102,13 @@ button{
 
 .tel{
     font-size: 28px;
-    color: white;
+    color: white !important;
     text-decoration: none;
     font-weight: 700;
+}
+
+.tel:hover{
+    color: #da002b;
 }
 
 .nav__right__btn{
@@ -419,6 +423,8 @@ select {
     border-radius: 10px;
     img{
         width: 100%;
+        height: 300px;
+        object-fit: cover;
         border-radius: 10px;
     }
   }
