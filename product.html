@@ -3,9 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css">
+    <link rel="stylesheet" href="./css/product.css">
+    <link rel="stylesheet" href="./css/style.css">
     <title>Document</title>
 </head>
 <body>
-    
+    <header class="header">
+        <div class="header__top">
+       <img class="header__top__img" src="./Images/header top.jpg" alt="">
+ 
+        </div>
+       <nav class="header__nav">
+        <div class="header__navbar container">
+         <div class="nav__left">
+             <button class="nav__percent__btn">0% Muddatli to'lov</button>
+             <button class="nav__discount__btn">Chegirmalar</button>
+             <button class="nav__winning__btn">Yutuqli o'yinlar</button>
+             <button class="nav__map__btn">Sayt xaritasi</button>
+             <form>
+                 <select id="country" name="country">
+                 <option value="au">Mintaqani tanlang</option>
+                 <option value="ca" style="color: black;">Toshkent</option>
+                 <option value="ca" style="color: black;">Toshkent viloyati</option>
+                 <option value="usa" style="color: black;">Namangan viloyati</option>
+                 <option value="usa" style="color: black;">Andijon viloyati</option>
+                 <option value="usa" style="color: black;">Farg'ona viloyati</option>
+                 <option value="usa" style="color: black;">Samarqand viloyati</option>
+                 <option value="usa" style="color: black;">Buxoro   viloyati</option>
+                 </select>
+               </form>
+            </div>
+           <div class="nav__right">
+               <a class="tel" href="tel:+998772022021">+998 (71) 202 2021</a>
+               <button class="nav__right__btn">olcha da soting</button>
+               <div class="nav__language">
+                   <p class="language">Ўзб</p>
+                   <p class="language">O'z</p>
+                   <p class="language">Рус</p>
+               </div>
+           </div>
+        </div>
+ 
+       </nav>
+     </header>
+     <div class="header__bottom container">
+         <a href="./index.html">
+           <img class="header__bottom__logo" src="./Images/logo.png" alt="img"></a>
+         <button class="header__bottom__btn"><i class="fa-solid fa-bars"></i> Katalog</button>
+         <div class="search">
+             <input class="search__input" type="text" placeholder="Katalog bo'yicha qidirish">
+             <span class="search__icon"><i class="fa-solid fa-magnifying-glass"></i></span>
+         </div>
+         <div class="header__bottom__right">
+             <span class="like__icon">
+               <i class="fa-solid fa-chart-simple"></i>
+               <p>Taqqoslash</p>
+             </span>
+             <span class="like__icon">
+               <i class="fa-regular fa-heart"></i>
+               <p>Sevimlilar</p>
+             </span>
+             <a href="./shopping.html" style="color: black;"><span class="like__icon">
+               <i class="fa-solid fa-cart-shopping"></i>
+               <p>Savatcha</p>
+             </span></a>
+             <a href="./admin.html" style="color: black;">
+               <span class="like__icon">
+                 <i class="fa-regular fa-user"></i>
+                 <p>Kirish</p>
+               </span>
+             </a>
+         </div>
+     </div>
 </body>
 </html>

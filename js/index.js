@@ -1,30 +1,28 @@
-import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs'
+import Swiper from "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs";
 
-const swiper = new Swiper('.swiper', {
-  direction: 'horizontal',
+const swiper = new Swiper(".swiper", {
+  direction: "horizontal",
   loop: true,
   autoplay: {
     delay: "4000",
   },
 
   pagination: {
-    el: '.swiper-pagination',
+    el: ".swiper-pagination",
   },
 
   // Navigation arrows
   navigation: {
-    nextEl: '.btn__next',
-    prevEl: '.btn__prev',
+    nextEl: ".btn__next",
+    prevEl: ".btn__prev",
   },
 
   // And if we need scrollbar
 });
 
-
-
-const swiper2 = new Swiper('.swiper2', {
+const swiper2 = new Swiper(".swiper2", {
   // Optional parameters
-  direction: 'horizontal',
+  direction: "horizontal",
   loop: true,
   slidesPerView: 10, // Har safar ko'rinadigan slaydlar soni
   spaceBetween: 20,
@@ -33,59 +31,64 @@ const swiper2 = new Swiper('.swiper2', {
   },
 
   pagination: {
-    el: '.swiper-pagination',
+    el: ".swiper-pagination",
   },
 
   // Navigation arrows
   navigation: {
-    nextEl: '.btn__next2',
-    prevEl: '.btn__prev2',
+    nextEl: ".btn__next2",
+    prevEl: ".btn__prev2",
   },
 
   // And if we need scrollbar
 });
 
-
-
-
 // soat
 
 function updateClock() {
   const now = new Date();
-  const hours = String(now.getHours()).padStart(2, '0');
-  const minutes = String(now.getMinutes()).padStart(2, '0');
-  const seconds = String(now.getSeconds()).padStart(2, '0');
-  document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
+  const hours = String(now.getHours()).padStart(2, "0");
+  const minutes = String(now.getMinutes()).padStart(2, "0");
+  const seconds = String(now.getSeconds()).padStart(2, "0");
+  document.getElementById(
+    "clock"
+  ).textContent = `${hours}:${minutes}:${seconds}`;
 
   setTimeout(updateClock, 1000);
 }
 
 updateClock();
 
-// 
+//
 
+const productsWrapper = document.querySelector(".products__wrapper");
 
-const productsWrapper = document.querySelector(".products__wrapper")
-
-const GET_PRODUCTS = "http://localhost:5000"
+const GET_PRODUCTS = "http://localhost:5000";
 
 // API
 
-fetchProducts()
+fetchProducts();
 
 async function fetchProducts() {
-
-  return fetch(`${GET_PRODUCTS}/products`).then((res) => res.json()).then((data) => createProductCard(data.data))
+  return fetch(`${GET_PRODUCTS}/products`)
+    .then((res) => res.json())
+    .then((data) => createProductCard(data.data));
 }
 async function createProductCard(data) {
   const cards = document.querySelector(".products__cards");
-  cards.innerHTML = data?.map((card) => (
-    `<div class="products__cards__card">
+  cards.innerHTML = data
+    ?.map(
+      (card) =>
+        `<div class="products__cards__card">
           <div class="products__cards__card__img">
               <img src="${card.image}" alt="">
           </div>
           <div class="products__cards__card__desc">
-              <h2>${card.name && card.name.length > 20 ? card.name.slice(0, 20) + "..." : card.name}</h2>
+              <h2>${
+                card.name && card.name.length > 20
+                  ? card.name.slice(0, 20) + "..."
+                  : card.name
+              }</h2>
               <p>${card.price}</p>
           </div>
           <div class="products__cards__card-btn">
@@ -95,7 +98,8 @@ async function createProductCard(data) {
               <button class="products__cards__card__btns">Muddatli to'lov</button>
           </div>
       </div>`
-  )).join("");
+    )
+    .join("");
 
   const karzinaBtns = document.querySelectorAll(".products__cards__card__btn");
 
@@ -108,7 +112,15 @@ function saveLocal(product) {
   console.log("Mahsulot saqlandi:", product);
 
   let savedProducts = JSON.parse(localStorage.getItem("products")) || [];
-  localStorage.setItem("products", JSON.stringify([...savedProducts, { ...product, total: 1 }]));
+  let newdata = savedProducts.filter((item) => item.id != product.id);
+  localStorage.setItem(
+    "products",
+    JSON.stringify([...newdata, { ...product, total: 1 }])
+  );
 
+  savedProducts.forEach((item) => {
+    if (item.id == product.id) {
+      alert("Siz bu productni qo'shgansiz");
+    }
+  });
 }
-
